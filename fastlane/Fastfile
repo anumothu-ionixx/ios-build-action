@@ -190,7 +190,7 @@ platform :ios do
         )
       elsif ENV['INCREMENT_VERSION_NUMBER'] == 'testflight'
         latest_build_version = lane_context[SharedValues::LATEST_TESTFLIGHT_VERSION]
-        puts("test flight current version ====>", latest_build_version)
+        puts "test flight current version ====>/#{latest_build_version}"
         increment_version_number(
           version_number: latest_build_version,
           xcodeproj: ENV['PROJECT_PATH']
