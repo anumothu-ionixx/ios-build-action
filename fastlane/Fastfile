@@ -188,6 +188,13 @@ platform :ios do
           bump_type: ENV['INCREMENT_VERSION_NUMBER'],
           xcodeproj: ENV['PROJECT_PATH']
         )
+      elsif ENV['INCREMENT_VERSION_NUMBER'] == 'testflight'
+        latest_build_version = lane_context[SharedValues::LATEST_TESTFLIGHT_VERSION]
+        puts("test flight current version ====>", latest_build_version)
+        increment_version_number(
+          version_number: latest_build_version,
+          xcodeproj: ENV['PROJECT_PATH']
+        )
       else
         increment_version_number(
           version_number: ENV['INCREMENT_VERSION_NUMBER'],
